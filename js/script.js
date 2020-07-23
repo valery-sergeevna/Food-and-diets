@@ -94,4 +94,52 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     setClock('.timer', deadline);
 
+    //modal window
+
+    const modalButton = document.querySelectorAll('[data-modal]'),
+        modal = document.querySelector('.modal'),
+        modalSubmit = document.querySelector('.modal__submit');
+
+    //открыть модальное окно
+    const openModal = () => {
+        modal.classList.remove('hide');
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+        document.body.addEventListener('keydown', closeModal);
+        clearInterval(modalTimerId);
+    };
+
+    //закрыть модальное окно
+    const closeModal = event => {
+        const target = event.target;
+
+        if (target.classList.contains('modal__close') || 
+        target === modal ||
+        event.code === 'Escape') {
+            modal.classList.remove('show');
+            modal.classList.add('hide');
+            document.body.style.overflow = '';
+            modalSubmit.reset();
+        }
+    };
+    
+    modalButton.forEach(btn => {
+        btn.addEventListener('click', openModal);
+    });
+
+    modal.addEventListener('click', closeModal);
+    //открыть модальное окно через 10 секунд
+    const modalTimerId = setTimeout(openModal, 10000);
+
+    //открыть модальное окно при скролле всей страницы сайта
+    function showModalByScroll() {
+        if(window.pageYOffset + document.documentElement.clientHeight >= 
+            document.documentElement.scrollHeight){
+                openModal();
+                window.removeEventListener('scroll', showModalByScroll);
+            }
+    }
+
+    window.addEventListener('scroll', showModalByScroll);
+
 });
