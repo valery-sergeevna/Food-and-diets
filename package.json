@@ -1,0 +1,22 @@
+{
+  "name": "food",
+  "version": "1.0.0",
+  "description": "Internet-services on native JS.\r https://valery-sergeevna.github.io/food-and-diets/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valery-sergeevna/Food-and-diets.git"
+  },
+  "author": "Valery",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/valery-sergeevna/Food-and-diets/issues"
+  },
+  "homepage": "https://github.com/valery-sergeevna/Food-and-diets#readme",
+  "devDependencies": {
+    "json-server": "^0.16.1"
+  }
+}
