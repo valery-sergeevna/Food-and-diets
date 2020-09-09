@@ -24,6 +24,7 @@ function modal(triggerSelector, modalSelector, modalTimerId) {
 
     modalTrigger.forEach(btn => {
         btn.addEventListener('click', () => openModal(modalSelector, modalTimerId));
+        document.body.style.marginRight = `${scroll}px`;
     });
 
     modal.addEventListener('click', (e) => {
@@ -44,6 +45,7 @@ function modal(triggerSelector, modalSelector, modalTimerId) {
             window.removeEventListener('scroll', showModalByScroll);
         }
     }
+
     window.addEventListener('scroll', showModalByScroll);
 }
 
